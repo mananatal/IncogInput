@@ -37,9 +37,9 @@ export async function GET(request:Request){
         }
 
         return Response.json({
-            success:false,
-            message:"Username is available"
-        },{status:400}) 
+            success:true,
+            message:"Username is Available"
+        },{status:200}) 
 
     } catch (error) {
         console.error("Error while checking uniqueness of username: ",error);

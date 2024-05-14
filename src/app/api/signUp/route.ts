@@ -1,4 +1,4 @@
-import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
+import  {sendVerificationEmail}  from "@/helpers/sendVerificationEmail";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User.model";
 import bcrypt from "bcrypt";
@@ -74,8 +74,8 @@ export async function POST(request:Request){
 
         return Response.json({
             success:true,
-            message:"User Registered successfully, Please Verify"
-        },{status:500});
+            message:"User Registered successfully, Please Verify your Email to Login"
+        },{status:200});
 
     } catch (error) {
         console.error('Error registering user:', error);
