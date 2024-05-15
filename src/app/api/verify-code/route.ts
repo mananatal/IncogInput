@@ -49,7 +49,7 @@ export async function POST(request:Request){
         }else{
             return  Response.json({
                 success:false,
-                message:"Verify Code expires, PLease SignUp again to get new Code"
+                message:"Verify Code expires, Please SignUp again to get new Code"
             },{status:400})
         }
 
