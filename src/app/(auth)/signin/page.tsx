@@ -13,12 +13,13 @@ import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn} from "next-auth/react"
+import { useState } from "react";
 
 const SignInPage = () => {
 
     const router=useRouter();
 
-    
+    const [loading,setLoading]=useState(false);
 
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
@@ -29,6 +30,7 @@ const SignInPage = () => {
     });
 
     const onSubmit=async (data: z.infer<typeof signInSchema>)=>{
+        setLoading(true);
         const result=await signIn("credentials",
             {
                 redirect:false,
@@ -36,7 +38,8 @@ const SignInPage = () => {
                 password:data.password,
             }
         )
-        console.log(result)
+        
+        setLoading(false);
 
         if(!result?.ok){
             toast({
@@ -104,6 +107,7 @@ const SignInPage = () => {
                     <button
                         type="submit"
                         className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+                        disabled={loading}
                     >
                         Sign in &rarr;
                         <BottomGradient />
