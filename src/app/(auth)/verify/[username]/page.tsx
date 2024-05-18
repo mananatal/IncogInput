@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -71,7 +70,7 @@ const VerifyAccount = () => {
               Verify Your Account
           </h2>
           <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-              PLease Verify your Account to Login
+              Enter the verification code sent to your email
           </p>
   
           <div className="mt-6">
