@@ -29,7 +29,7 @@ export async function GET(request:Request){
                 $unwind:"$messages"
             },
             {
-                $sort:{"$messages.createdAt":-1}
+                $sort:{"messages.createdAt":-1}
             },
             {
                 $group:{
@@ -44,10 +44,10 @@ export async function GET(request:Request){
         if (!user || user.length === 0) {
             return Response.json({
                 success:false,
-                message:"User not found"
+                message:"User Messages not found"
             },{status:404})
         }        
-       
+    
         return Response.json({
             success:true,
             messages: user[0].messages

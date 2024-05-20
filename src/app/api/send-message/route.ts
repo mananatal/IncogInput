@@ -9,8 +9,8 @@ export async function POST(request:Request){
     try {
         const {username,content}=await request.json();
 
-        const result=messageSchema.safeParse({content});
-
+        const result=messageSchema.safeParse({Content:content});
+        console.log("PRINTING RESULT: ",result)
         if(!result.success){
             const contentErrors=result.error.format().Content?._errors|| [];
             return  Response.json({
@@ -44,7 +44,7 @@ export async function POST(request:Request){
         await user.save(); 
 
         return Response.json({
-            success:false,
+            success:true,
             message:"Message sent successfully"
         },{status:201});
 

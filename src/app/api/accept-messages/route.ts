@@ -50,8 +50,8 @@ export async function POST(request:Request){
 
         return Response.json({
             success:true,
-            message:"isAcceptingMessages status toggled successfully",
-            updatedUser            
+            message:"Accept Messages Status Toggled Successfully",
+            isAcceptingMessages:updatedUser.isAcceptingMessage            
         },{status:200})
 
     } catch (error:any) {
@@ -92,7 +92,7 @@ export async function GET(request:Request){
         return Response.json({
             success:true,
             isAcceptingMessages:user.isAcceptingMessage,
-        },{status:404})
+        },{status:200})
 
     } catch (error:any) {
         console.error("Error while getting user isAcceptingMessages Status",error);
