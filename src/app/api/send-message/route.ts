@@ -9,10 +9,10 @@ export async function POST(request:Request){
     try {
         const {username,content}=await request.json();
 
-        const result=messageSchema.safeParse({Content:content});
-        console.log("PRINTING RESULT: ",result)
+        const result=messageSchema.safeParse({content:content});
+
         if(!result.success){
-            const contentErrors=result.error.format().Content?._errors|| [];
+            const contentErrors=result.error.format().content?._errors|| [];
             return  Response.json({
                 success:false,
                 message:contentErrors.length>0?contentErrors.join(', '):"Error in validating content"
@@ -31,7 +31,7 @@ export async function POST(request:Request){
         if(!user.isAcceptingMessage){
             return Response.json({
                 success:false,
-                message:"User is not accepting messages"
+                message:"User is not Accepting Feedback"
             },{status:400});
         }
         
@@ -49,7 +49,7 @@ export async function POST(request:Request){
         },{status:201});
 
     } catch (error) {
-        console.error("Error while sending User messages ",error);
+        // console.error("Error while sending User messages ",error);
         return Response.json({
             success:false,
             message:"Error while sending User messages"

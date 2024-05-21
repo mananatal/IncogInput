@@ -44,7 +44,7 @@ export async function GET(request:Request){
         if (!user || user.length === 0) {
             return Response.json({
                 success:false,
-                message:"User Messages not found"
+                message:"No Feedback Found"
             },{status:404})
         }        
     

@@ -41,6 +41,7 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
     const handleMessageDelete=async ()=>{
         try {
             setIsDeleting(true);
+            onMessageDelete(message?._id)
             const response=await axios.delete<ApiResponse>(`/api/delete-message/${message?._id}`)
 
             if(response?.data?.success){
@@ -48,7 +49,6 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                     title:response.data.message
                 })
             }
-            onMessageDelete(message?._id)
         } catch (error) {
             const axiosError=error as AxiosError<ApiResponse>;
             toast({
@@ -87,8 +87,7 @@ const MessageCard = ({message,onMessageDelete}:MessageCardProps) => {
                 {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')}
             </div>
         </CardHeader>
-        <CardContent>
-        </CardContent>
+        
     </Card>
   )
 }

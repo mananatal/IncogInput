@@ -191,8 +191,8 @@ const Dashboard = () => {
             }
           </div>
           :
-          <div>
-            No messages found
+          <div className='px-4 mt-2'>
+            No Feedback Found
           </div>
         }
       </div>
