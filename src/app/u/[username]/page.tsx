@@ -65,9 +65,6 @@ const UserPage = ({params}:{params:{username:string}}) => {
   return (
     <>
     <div className='md:w-[60%] mx-auto relative'>
-        {/* <div className="absolute right-16 ">
-            <ModeToggle/>
-        </div> */}
 
         <div className='mt-10 flex items-center justify-between'>
           <h2 className="text-2xl md:text-6xl font-bold dark:text-white px-4">Public Profile Link</h2>
