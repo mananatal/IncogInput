@@ -43,6 +43,7 @@ const UserPage = ({params}:{params:{username:string}}) => {
           description:"Feedback Send Successfully"
         });
         setFeedback("");
+        setValue('content',"");
       }
 
     } catch (error) {
