@@ -8,7 +8,7 @@ const usernameQuerySchema=z.object({
 });
 
 export async function GET(request:Request){
-    dbConnect();
+    await dbConnect();
     try {
         const {searchParams}=new URL(request.url);
         const queryParams={

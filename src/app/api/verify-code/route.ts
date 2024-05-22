@@ -5,7 +5,7 @@ import { verifySchema } from "@/schemas/verifySchema";
 
 
 export async function POST(request:Request){
-    dbConnect();
+    await dbConnect();
     try {
         const {username,code}=await request.json();
 

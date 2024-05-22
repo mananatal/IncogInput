@@ -5,7 +5,7 @@ import { Message } from "@/models/User.model";
 
 
 export async function POST(request:Request){
-    dbConnect();
+    await dbConnect();
     try {
         const {username,content}=await request.json();
 
