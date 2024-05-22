@@ -49,7 +49,7 @@ const VerifyAccount = () => {
               title:"Success",
               description:"Account Verified Successfully"
             })
-            router.replace('signin');
+            router.replace('/signin');
           }
       } catch (error) {
           const axiosErrors=error as AxiosError<ApiResponse>;

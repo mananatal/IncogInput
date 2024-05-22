@@ -34,7 +34,6 @@ const UserPage = ({params}:{params:{username:string}}) => {
 
 
   const onSubmit=async (data:z.infer<typeof messageSchema>)=>{
-    console.log("PRINTING DATA: ",data)
     try {
       setIsSending(true);
       const response=await axios.post<ApiResponse>('/api/send-message',{username:params.username,content:data.content});
@@ -43,6 +42,7 @@ const UserPage = ({params}:{params:{username:string}}) => {
           title:"success",
           description:"Feedback Send Successfully"
         });
+        setFeedback("");
       }
 
     } catch (error) {
