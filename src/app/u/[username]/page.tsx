@@ -1,5 +1,4 @@
 'use client'
-import { BottomGradient, LabelInputContainer } from '@/app/(auth)/signin/page';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,6 +14,8 @@ import { useCompletion } from "ai/react"
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import { ModeToggle } from '@/components/ModeToggle';
+import { BottomGradient } from '@/components/BottomGradient';
+import { LabelInputContainer } from '@/components/LabelInputContainer';
 
 
 const UserPage = ({params}:{params:{username:string}}) => {
@@ -60,7 +61,7 @@ const UserPage = ({params}:{params:{username:string}}) => {
     if(completion.length==0){
       complete("");
     }
-  },[completion])
+  },[completion,complete])
 
   return (
     <>
