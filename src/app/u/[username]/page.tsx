@@ -13,12 +13,14 @@ import { useForm } from 'react-hook-form';
 import * as z from "zod";
 import { useCompletion } from "ai/react"
 import Link from 'next/link';
+import Footer from '@/components/Footer';
+import { ModeToggle } from '@/components/ModeToggle';
 
 
 const UserPage = ({params}:{params:{username:string}}) => {
   const [isSending,setIsSending]=useState(false);
   const [feedback,setFeedback]=useState("");
-  const { completion,complete,isLoading ,setCompletion} =useCompletion({api:"/api/suggest-messages"});
+  const { completion,complete,isLoading } =useCompletion({api:"/api/suggest-messages"});
 
   const form = useForm<z.infer<typeof messageSchema>>({
     resolver: zodResolver(messageSchema),
@@ -54,10 +56,6 @@ const UserPage = ({params}:{params:{username:string}}) => {
     }
   }
 
-  const setGeneratedFeedbackToTextArea=()=>{
-
-  }
-
   useEffect(()=>{
     if(completion.length==0){
       complete("");
@@ -65,9 +63,17 @@ const UserPage = ({params}:{params:{username:string}}) => {
   },[completion])
 
   return (
-    <div className='md:w-[60%] mx-auto'>
-        <div className='mt-10'>
+    <>
+    <div className='md:w-[60%] mx-auto relative'>
+        {/* <div className="absolute right-16 ">
+            <ModeToggle/>
+        </div> */}
+
+        <div className='mt-10 flex items-center justify-between'>
           <h2 className="text-2xl md:text-6xl font-bold dark:text-white px-4">Public Profile Link</h2>
+          <div className='pr-4'>
+            <ModeToggle/>
+          </div>
         </div>  
 
         <div className=" w-full mt-6 mx-auto rounded-none md:rounded-2xl  p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -171,6 +177,8 @@ const UserPage = ({params}:{params:{username:string}}) => {
 
 
     </div>
+    <Footer/>
+    </>
   )
 }
 

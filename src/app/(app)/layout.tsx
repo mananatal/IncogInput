@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar"
 
 
@@ -9,8 +10,7 @@ export default function DashboardLayout({
     return (
       <section>
         {/* Include shared UI here e.g. a header or sidebar */}
-        <Navbar/>
-   
+        <Navbar/>   
         {children}
       </section>
     )

@@ -147,7 +147,7 @@ const Dashboard = () => {
       </div>
 
       <div className='mt-6 flex flex-col space-y-2 px-4'>
-        <p className='font-bold dark:text-white text-lg'>Accept Messages</p>
+        <p className='font-bold dark:text-white text-lg'>Accept Feedbacks</p>
         <Switch
           className='text-2xl'
           checked={acceptMessages}
@@ -196,8 +196,6 @@ const Dashboard = () => {
           </div>
         }
       </div>
-
-
     </div>
   )
 }

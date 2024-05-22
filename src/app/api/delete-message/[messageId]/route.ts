@@ -43,20 +43,20 @@ export async function DELETE(request:Request,{params}:{params:{messageId:string}
         if(deletedMessage.modifiedCount===0){
             return Response.json({
                 success:false,
-                message:"Message not found or already deleted"
+                message:"Feedback not found or already deleted"
             },{status:400})
         }
 
         return Response.json({
             success:true,
-            message:"Message Deleted Successfully",            
+            message:"Feedback Deleted Successfully",            
         },{status:200})
 
     } catch (error) {
-        console.error("Error While Deleting message: ",error);
+        console.error("Error While Deleting Feedback: ",error);
         return Response.json({
             success:false,
-            message:"Error While Deleting Message"
+            message:"Error While Deleting Feedback"
         },{status:500})
     }
 }

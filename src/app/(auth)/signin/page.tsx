@@ -6,20 +6,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { cn } from "@/lib/utils";
-import axios, { AxiosError } from "axios";
-import { ApiResponse } from "@/types/ApiResponse";
-import { useRouter } from "next/navigation";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn} from "next-auth/react"
 import { useState } from "react";
+import { ModeToggle } from "@/components/ModeToggle";
+import { useRouter } from "next/navigation";
 
 const SignInPage = () => {
 
-    const router=useRouter();
-
     const [loading,setLoading]=useState(false);
+    const router=useRouter();
 
     const form = useForm<z.infer<typeof signInSchema>>({
         resolver: zodResolver(signInSchema),
@@ -59,7 +57,12 @@ const SignInPage = () => {
     }
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-white dark:bg-black">
+    <div className="relative  h-screen w-screen flex items-center justify-center bg-white dark:bg-black">
+
+        <div className="absolute right-16 top-10">
+            <ModeToggle/>
+        </div>
+
         <div className="max-w-md  w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
         <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200">
             Welcome to IncogInput

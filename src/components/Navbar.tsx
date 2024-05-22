@@ -21,7 +21,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="h-16 bg-Black w-full border-b border-richblack-700 flex items-center justify-center">
+    <div className="h-16 bg-white dark:bg-black w-full border-b border-richblack-700 flex items-center justify-center">
       <div   className='w-11/12 max-w-[1200px] mx-auto flex items-center justify-between'>
           <div className="flex items-center justify-center">
             <Image
@@ -33,7 +33,7 @@ const Navbar = () => {
           </div>
           {
             session &&
-            <div>
+            <div className="hidden md:block">
               <p className="dark:text-neutral-200 text-gray-900 font-bold text-xl cursor-pointer">Welcome {user?.username || user?.email}</p>
             </div>
           }
