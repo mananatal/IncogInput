@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name: IncogInput 
 
-## Getting Started
 
-First, run the development server:
+## Project Summary:
+IncogInput is an anonymous feedback platform where users can share their thoughts without revealing their identity. Whether it's for personal growth, professional improvement, or just an honest opinion, IncogInput makes it easy to receive candid feedback.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Key Features of **IncogInput**
+
+1. **Anonymous Feedback Submission**: Allows users to send feedback anonymously while maintaining privacy.  
+2. **AI-Suggested Feedback**: Enhances user input by providing AI-generated suggestions for constructive feedback.  
+3. **User Authentication and Authorization**: Secures access with authentication via Next-Auth and ensures appropriate authorization.  
+4. **Dark and Light Mode**: Offers customizable themes for better usability and accessibility.  
+5. **Email Verification with OTP**: Provides reliable email verification to ensure secure user registration and login.  
+6. **Responsive UI**: Features a responsive design to deliver seamless user experience across devices.
+
+
+## Project Duration:
+I've dedicated over a month to develop and refine this project.
+
+
+
+## Installation:
+1. Clone the repository: `git clone https://github.com/mananatal/IncogInput.git`
+2. Install dependencies: `npm install`
+3. Start the server: `npm run dev`
+
+
+## Environment Variables:
+
+To run this project, you will need to set up the following environment variables in a `.env` file at the root of your project:
+
+- `MONGODB_URL`: The connection URI for your MongoDB database.  
+- `RESEND_API_KEY`: API key for the Resend service for email automation.  
+- `NEXTAUTH_SECRET`: Secret key used by NextAuth for securing authentication sessions.  
+- `OPENAI_API_KEY`: API key for accessing the OpenAI API for AI-suggested feedback.
+
+Example `.env` file:
+
+```plaintext
+MONGODB_URL=mongodb+srv://username:password@cluster0.mongodb.net/dbname
+RESEND_API_KEY=your_resend_api_key
+NEXTAUTH_SECRET=your_nextauth_secret
+OPENAI_API_KEY=your_openai_api_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage:
+1. Ensure MongoDB is running.
+2. Start the server using the provided start script.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing:
+Contributions are welcome! Feel free to open issues or submit pull requests to help improve this project.
 
-## Learn More
+## Feedback and Contact:
+I welcome any feedback or suggestions for improving this project. If you have questions, ideas, or just want to connect, feel free to reach out to me via email at [mananatal25@gmail.com](mailto:mananatal25@gmail.com) or through my [GitHub profile](https://github.com/mananatal).
 
-To learn more about Next.js, take a look at the following resources:
+Thank you for your interest in IncogInput!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
